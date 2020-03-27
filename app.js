@@ -3,11 +3,22 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var fs = require('fs');
 
-var indexRouter = require('routes/index.js');
-var usersRouter = require('routes/users.js');
+console.error('here: ');
+fs.readdir('./', function(err, items) {
+  console.error(items);
+
+  for (var i=0; i<items.length; i++) {
+    console.error(items[i]);
+  }
+});
 
 var app = express();
+var indexRouter = require('./routes/index.js');
+var usersRouter = require('./routes/users.js');
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
